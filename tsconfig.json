@@ -1,0 +1,14 @@
+{
+    "compilerOptions": { 
+        "outDir": "build/src",
+        "rootDir": "src", 
+        "target": "es5",
+        "module": "commonjs",
+        "jsx": "react"
+    }, 
+    "exclude": [
+        "node_modules",
+        "typings/main.d.ts",
+        "typings/main"
+    ]
+}

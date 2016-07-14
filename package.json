@@ -1,0 +1,43 @@
+{
+  "author": "cantide5ga",
+  "name": "pluto-rd",
+  "description": "<description>",
+  "version": "0.29.0",
+  "typings": "./src/typedef/pluto-rd.d.ts",
+  "scripts": {
+    "clean": "rm -rf build && rm -rf dist",
+    "init": "rm -rf .git && sudo npm install && npm init && git init",
+    "compile": "tsc",
+    "build:tsc": "npm run compile",
+    "prebundle": "mkdir build/lib",
+    "bundle": "browserify build/src/js/main.js --standalone pluto-rd > build/lib/bundle.js",
+    "prebuild": "npm run clean && mkdir -p dist",
+    "build": "npm run build:tsc && npm run bundle",
+    "prepack": "npm run build && cp -r src/typedef build/src && cp package.json build && cp typings.json build",
+    "test": "rm -rf build && npm run build:tsc && jasmine"
+  },
+  "dependencies": {
+    "flux": "^2.1.1",
+    "moment": "^2.13.0",
+    "react": "^15.0.1",
+    "rewire": "^2.5.1"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "istanbul": "^0.4.3",
+    "jasmine": "^2.4.1",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4"
+  },
+  "private": true,
+  "main": "src/js/main.js",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cantide5ga/npm-project-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cantide5ga/npm-project-template/issues"
+  },
+  "homepage": "https://github.com/cantide5ga/npm-project-template#readme"
+}

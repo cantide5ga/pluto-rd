@@ -1,0 +1,15 @@
+{
+  "name": "pluto-rd",
+  "globalDependencies": {
+    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#46c43acaef51abc59284c2bb625d0fcfda5be9e3",
+    "node": "registry:dt/node#4.0.0+20160423143914"
+  },
+  "dependencies": {
+    "flux": "github:cantide5ga/typed-flux#06abf0b632f7d595f4034ce7924d63424df3506f",
+    "pluto-rd": "file:src/typedef/pluto-rd.d.ts",
+    "react": "github:cantide5ga/typed-react#42692d400db3c333394ec75bce9f6d09b5a0a769"
+  },
+  "devDependencies": {
+    "rewire": "github:cantide5ga/typed-rewire#69d8069ce84a10928206786ad05e2772ff9576ca"
+  }
+}

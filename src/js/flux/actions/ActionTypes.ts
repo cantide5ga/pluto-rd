@@ -1,0 +1,6 @@
+export enum ActionTypes {
+    KEYWORD_CLICK,
+    CMS_SUBMIT,
+    ENTRY_DRIVER_CONNECT,
+    KEYWORD_DRIVER_CONNECT,
+}
