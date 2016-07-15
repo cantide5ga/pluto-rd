@@ -1,6 +1,7 @@
 import { Dispatcher } from '../dispatcher/Dispatcher';
 import { AbstractStore } from './AbstractStore';
 import { Ds } from '../../connector/DataSourceConnector'
+import { Listener } from '../../config/Listener';
 import { Keyword } from 'pluto-rd';
 import { ActionTypes } from '../actions/ActionTypes';
 import { Action } from '../actions/Action';
@@ -13,6 +14,18 @@ const initKeywords = (payload: { keywords: Keyword[], entryCount: number }) => {
     totalEntries = payload.entryCount;
 }
 
+const highlight = (handle: string) => {
+    keywords.forEach((keyword) => {  
+        keyword.selected = false;
+        if(keyword.handle == handle)
+            keyword.selected = true; 
+    });
+}
+
+const notifyListener = (handle: string) => {
+    Listener.keywordOn(handle);
+}
+
 export class WordCloudStoreStatic extends AbstractStore {
     public getStore(): { keywords: Keyword[], totalEntries: number } {
         return {
@@ -20,14 +33,6 @@ export class WordCloudStoreStatic extends AbstractStore {
             totalEntries: totalEntries
         }
     }
-    
-    // public getKeywords(): Keyword[] {
-    //     return keywords;
-    // }
-    
-    // public getTotalEntries(): number {
-    //     return totalEntries;
-    // }
 }
 
 //singleton
@@ -37,6 +42,12 @@ const cb = (action: Action): void => {
     switch(action.actionType) {
         case ActionTypes.KEYWORD_DRIVER_CONNECT:
         initKeywords(action.payload);
+        WordCloudStore.emitChange();
+        break;
+        
+        case ActionTypes.KEYWORD_CLICK:
+        highlight(action.payload);
+        notifyListener(action.payload);
         WordCloudStore.emitChange();
         break;
     }

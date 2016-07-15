@@ -21,10 +21,8 @@ const initQryEntries = (payload: (keyword: string) => Entry[]): void => {
 
 //exported to improve testability
 export class BlogStoreStatic extends AbstractStore {
-    public getEntries(): { entries: Entry[] } {
-        return {
-            entries: entries
-        }
+    public getEntries(): Entry[] {
+        return entries;
     }
 }
 

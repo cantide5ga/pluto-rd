@@ -6,24 +6,30 @@ import { Entry } from 'pluto-rd'
 export class Blog extends React.Component<{}, { entries: Entry[] }> {
     constructor() {
         super();
-        this.state = BlogStore.getEntries();
+        this.state =  {
+            entries: BlogStore.getEntries()
+        }
     }
     
     public render() {
         let entryEls = new Array<React.ReactElement<{}>>();
 
         this.state.entries.forEach(entry => {
+            const entryProps: Entry = {
+                title: entry.title,
+                date: entry.date,
+                content: entry.content,
+                keywords: entry.keywords,
+            }
+            
             entryEls.push(<BlogEntry 
-                                    key = {`${entry.title}${entry.date}`}
-                                    title = {entry.title}
-                                    date = {entry.date}
-                                    content = {entry.content}
-                                    keywords = {entry.keywords} 
-                                />)
+                            key = {`${entry.title}${entry.date}`}
+                            entry = {entryProps}                               
+                        />)
         });
            
         return (
-            <div>
+            <div id="blog-entries">
                 {entryEls}
             </div>
         )
@@ -38,6 +44,8 @@ export class Blog extends React.Component<{}, { entries: Entry[] }> {
     }
     
     private onChange = () => {
-        this.setState(BlogStore.getEntries());
+        this.setState({
+            entries: BlogStore.getEntries()
+        });
     }
 }

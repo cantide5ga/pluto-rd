@@ -1,0 +1,45 @@
+#image-container {
+    width: 300px;
+    float: right;
+}
+
+#img {
+    width: 100%;
+    height: auto;
+}
+
+#attribution {
+    font-size: 75%;
+}
+
+.tag-list a:link {
+    color: black;
+    text-decoration: none;
+}
+.tag-list a:visited {
+    color: black;
+}
+.tag-list a:hover {
+    background-color: lightslategray;
+    color: white;
+}
+.tag-list a:active {
+    background-color: lightslategray;
+    color: white;
+}
+
+.word-cloud-keyword a:link {
+    color: black;
+    text-decoration: none;
+}
+.word-cloud-keyword a:visited {
+    color: black;
+}
+.word-cloud-keyword a:hover {
+    background-color: lightslategray;
+    color: white;
+}
+.word-cloud-keyword a:active {
+    background-color: lightslategray;
+    color: white;
+}

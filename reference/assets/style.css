@@ -1,0 +1,58 @@
+/*Blog selectors*/
+#blog-entries {
+    
+}
+
+.entry {
+    margin-bottom: 50px;
+}
+
+.entry-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.entry-date {
+    color: grey;
+    font-size: 14px;
+}
+
+.entry-content {
+    
+}
+
+.tag-list {
+    
+}
+
+.tag {
+    cursor: pointer;
+    margin: 3px;
+    font-style: italic;
+    text-decoration: underline;
+}
+/*******/
+
+/*Word Cloud*/
+#word-cloud {
+    width: 33%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: lightsteelblue;
+    line-height: 70%;
+}
+
+.word-cloud-keyword {
+    cursor: pointer;
+    margin: 4px;
+    display: inline-block;
+}
+
+.trendy-keyword {
+    font-style: italic;
+}
+
+.keyword-highlighted {
+    font-weight: bold;
+}
+/*******/

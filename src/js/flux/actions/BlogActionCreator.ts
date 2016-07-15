@@ -10,6 +10,13 @@ class ActionCreator extends AbstractActionCreator {
             payload: fn
         });
     }
+    
+    public clickTag(handle:string): void {
+        this.dispatch({
+            actionType: ActionTypes.KEYWORD_CLICK,
+            payload: handle 
+        });
+    }
 }
 
 //singleton

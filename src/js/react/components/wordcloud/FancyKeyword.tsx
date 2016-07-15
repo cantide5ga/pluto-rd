@@ -4,18 +4,24 @@ import { WordCloudActionCreator } from '../../../flux/actions/WordCloudActionCre
 
 export class FancyKeyword extends React.Component<FancyKeywordProps, {}> { //dumb component; stateless
     public render() {
-        const classes = `${this.props.recent ? 'recent': ''}`;     
+        const classes = `${this.props.recent ? 'trendy-keyword' : ''}`
+                        + `${this.props.selected ? ' keyword-highlighted' : ''}`;     
         const style: React.CSSProperties = {
-            fontSize: this.props.trendiness 
+            fontSize: this.props.trendiness,
+            // fontStyle: this.props.recent ? 'italic' : 'none',
+            // fontWeight: this.props.selected ? 'bold' : 'normal' 
         }
              
         return ( 
-            <a 
-                onClick={this.onClick}
-                className={classes} 
-                style={style}>
-                    {this.props.handle}
-            </a>
+            <span className="word-cloud-keyword">
+                <a 
+                    href="#"
+                    onClick={this.onClick}
+                    className={classes} 
+                    style={style}>
+                        {this.props.handle}
+                </a>
+            </span>
         )
     }
     
