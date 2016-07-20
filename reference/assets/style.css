@@ -1,58 +1,88 @@
 /*Blog selectors*/
-#blog-entries {
+#plrd-blog-entries {
     
 }
 
-.entry {
+.plrd-entry {
     margin-bottom: 50px;
 }
 
-.entry-title {
+.plrd-entry-title {
     font-size: 24px;
     font-weight: bold;
 }
 
-.entry-date {
+.plrd-entry-date {
     color: grey;
     font-size: 14px;
 }
 
-.entry-content {
+.plrd-entry-content {
     
 }
 
-.tag-list {
+.plrd-tag-list {
     
 }
 
-.tag {
+.plrd-tag {
     cursor: pointer;
     margin: 3px;
     font-style: italic;
     text-decoration: underline;
 }
+
+.plrd-paginator {
+    
+}
+
+.plrd-page-number {
+    
+}
+
+.plrd-curr-page {
+    
+}
+
+.plrd-prev {
+    
+}
+
+.plrd-next {
+    
+}
 /*******/
 
 /*Word Cloud*/
-#word-cloud {
+#plrd-word-cloud {
     width: 33%;
     margin-bottom: 20px;
     padding: 10px;
     background-color: lightsteelblue;
-    line-height: 70%;
+    line-height: 90%;
 }
 
-.word-cloud-keyword {
+.plrd-word-cloud-keyword {
     cursor: pointer;
     margin: 4px;
     display: inline-block;
 }
 
-.trendy-keyword {
+.plrd-trendy-keyword {
     font-style: italic;
 }
 
-.keyword-highlighted {
+.plrd-keyword-highlighted {
     font-weight: bold;
 }
 /*******/
+
+.plrd-home {
+    color: white;
+    background-color: lightslategray;
+    border: none;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 25px;
+    outline: none;
+}

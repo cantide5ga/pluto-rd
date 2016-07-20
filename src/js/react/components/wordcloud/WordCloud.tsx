@@ -1,41 +1,33 @@
-import { FancyKeyword } from './FancyKeyword'
+import { FancyKeyword } from './FancyWord'
 import * as React from 'react';
 import { WordCloudStore } from '../../../flux/stores/WordCloudStore'
 import { Keyword } from 'pluto-rd'
+import { IFancyWord } from '../../../common/IFancyWord';
 
-export class WordCloud extends React.Component<{}, { keywords: Keyword[], totalEntries: number }> {
+
+export class WordCloud extends React.Component<{}, { fWords: IFancyWord[] } > {
     constructor() {
         super();
-        const store = WordCloudStore.getStore();
         this.state = { 
-            keywords: store.keywords, 
-            totalEntries: store.totalEntries 
-        };
+            fWords: WordCloudStore.getStore()
+        }
     }
        
     public render() {
-        const maxFontSize = 32;
-        const minFontSize = 8;
-        const multiplier = maxFontSize - minFontSize;
-        
         let keywordEls = new Array<React.ReactElement<{}>>();
         
-        this.state.keywords.forEach(keyword => {
-            const trendiness = keyword.count / this.state.totalEntries 
-                        * multiplier 
-                        + minFontSize
-            
+        this.state.fWords.forEach(keyword => {            
             keywordEls.push(<FancyKeyword
                                 key = {keyword.handle} 
                                 handle = {keyword.handle}
-                                recent = {keyword.recent}
-                                trendiness = {trendiness}
+                                isRecent = {keyword.isRecent}
+                                trendiness = {keyword.trendiness}
                                 selected = {keyword.selected}
                             />)    
         });
         
         return (
-            <div id="word-cloud">
+            <div id="plrd-word-cloud">
                 {keywordEls}
             </div>
         )
@@ -50,12 +42,8 @@ export class WordCloud extends React.Component<{}, { keywords: Keyword[], totalE
     }
     
     private onChange = () => {
-        const store = WordCloudStore.getStore();
-        this.setState(
-            { 
-                keywords: store.keywords, 
-                totalEntries: store.totalEntries
-            }
-        );
+        this.setState({
+            fWords: WordCloudStore.getStore()
+        });
     }
 }

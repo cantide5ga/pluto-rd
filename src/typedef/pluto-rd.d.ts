@@ -7,11 +7,17 @@ declare namespace PlutoRd {
         content: string
         keywords: string[]
     }
+    
+    interface EntryResult {
+        pagedEntries: Entry[],
+        totalCount: number    
+    }
         
     interface Keyword {
         handle: string
         count: number
-        recent: boolean
+        lastTagged: Date
+        hits: number
     }
 
     class Blog extends Component<{}, Entry[]> { }

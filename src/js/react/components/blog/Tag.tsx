@@ -4,7 +4,7 @@ import { BlogActionCreator } from '../../../flux/actions/BlogActionCreator'
 export class Tag extends React.Component<{ handle: string }, {}> {
     public render() {             
         return ( 
-            <span className="tag">
+            <span className="plrd-tag">
                 <a href="#" onClick={this.onClick}>
                         {this.props.handle}
                 </a>

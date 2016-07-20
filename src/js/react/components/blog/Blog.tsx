@@ -2,8 +2,13 @@ import * as React from 'react';
 import { BlogStore } from '../../../flux/stores/BlogStore'
 import { BlogEntry } from './BlogEntry'
 import { Entry } from 'pluto-rd'
+import { BlogActionCreator } from '../../../flux/actions/BlogActionCreator'
+import { Paginator } from './Paginator';
 
-export class Blog extends React.Component<{}, { entries: Entry[] }> {
+export class Blog extends React.Component<
+            { maxPerPage: number}, 
+            { entries: Entry[] }> {
+                
     constructor() {
         super();
         this.state =  {
@@ -29,14 +34,19 @@ export class Blog extends React.Component<{}, { entries: Entry[] }> {
         });
            
         return (
-            <div id="blog-entries">
+            <div id="plrd-blog-entries">
                 {entryEls}
+                <Paginator
+                    currPage = { BlogStore.getCurrentPage() }
+                    pageCount = { BlogStore.getPageCount() }
+                />
             </div>
         )
     }
        
     public componentDidMount() {
         BlogStore.addChangeListener(this.onChange);
+        BlogActionCreator.initBlog(this.props.maxPerPage);
     }
     
     public componentWillUnmount() {

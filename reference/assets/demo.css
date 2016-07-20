@@ -1,5 +1,10 @@
+body {
+    font-family: Georgia, Helvetica, Trebuchet, Palatino, Linotype, Serif;
+}
+
 #image-container {
     width: 300px;
+    margin: 20px;
     float: right;
 }
 
@@ -12,34 +17,74 @@
     font-size: 75%;
 }
 
-.tag-list a:link {
-    color: black;
+.plrd-paginator a:link {
+    border: 1px solid lightslategray;
+    color: lightslategray;
     text-decoration: none;
+    padding: 5px;
+    font-weight: normal;
 }
-.tag-list a:visited {
-    color: black;
+
+.plrd-paginator a:visited {
+    color: lightslategray;
 }
-.tag-list a:hover {
-    background-color: lightslategray;
-    color: white;
+
+.plrd-paginator a:hover {
+    font-weight: bold;
 }
-.tag-list a:active {
+
+.plrd-prev::after {
+    content: "<";    
+}
+
+.plrd-next::after {
+    content: ">";
+}
+
+.plrd-curr-page a:link {
+    border: 1px solid lightslategray;
     background-color: lightslategray;
     color: white;
 }
 
-.word-cloud-keyword a:link {
+.plrd-curr-page a:visited {
+    border: 1px solid lightslategray;
+    background-color: lightslategray;
+    color: white;
+}
+
+.plrd-tag-list a:link {
     color: black;
     text-decoration: none;
 }
-.word-cloud-keyword a:visited {
+.plrd-tag-list a:visited {
     color: black;
 }
-.word-cloud-keyword a:hover {
+.plrd-tag-list a:hover {
     background-color: lightslategray;
     color: white;
 }
-.word-cloud-keyword a:active {
+.plrd-tag-list a:active {
     background-color: lightslategray;
     color: white;
+}
+
+.plrd-word-cloud-keyword a:link {
+    color: black;
+    text-decoration: none;
+}
+.plrd-word-cloud-keyword a:visited {
+    color: black;
+}
+.plrd-word-cloud-keyword a:hover {
+    background-color: lightslategray;
+    color: white;
+}
+.plrd-word-cloud-keyword a:active {
+    background-color: lightslategray;
+    color: white;
+}
+
+.plrd-home::after {
+    content: "All Entries...";
 }

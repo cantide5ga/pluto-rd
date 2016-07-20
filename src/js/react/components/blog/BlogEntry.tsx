@@ -18,11 +18,11 @@ export class BlogEntry extends React.Component<{ entry: Entry }, {}> { //statele
         });
 
         return (
-            <div className="entry">            
-                <div className="entry-title">{this.props.entry.title}</div>
-                <div className="entry-date">{date}</div>
-                <p className="entry-content">{this.props.entry.content}</p>
-                <span className="tag-list">
+            <div className="plrd-entry">            
+                <div className="plrd-entry-title">{this.props.entry.title}</div>
+                <div className="plrd-entry-date">{date}</div>
+                <p className="plrd-entry-content">{this.props.entry.content}</p>
+                <span className="plrd-tag-list">
                     {tagEls}
                 </span>      
             </div>

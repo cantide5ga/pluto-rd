@@ -1,6 +1,6 @@
-function entryDriver(keyword) {
+function entryDriver(keyword, offset, count) {
     var entries = [];   
-    var lCased = keyword.toLowerCase();
+    var lCased = keyword ? keyword.toLowerCase() : null;
         
     switch(lCased) {
         case element.CALCIUM: entries.push(pentagonite, fluorite); break;
@@ -16,9 +16,10 @@ function entryDriver(keyword) {
         case element.CHROMIUM: entries.push(chromdravite); break;
         case element.ALUMINUM: entries.push(chrysocolla); break;
         case element.COPPER: entries.push(chrysocolla); break;
+        default: entries.push(fluorite, pentagonite, chromdravite, chrysocolla);
     }
     
-    return entries;
+    return { pagedEntries: entries.slice(offset, offset + count), totalCount: entries.length };
 }
 		
 plutoRd.Ds.registerEntryDriver(entryDriver);
@@ -27,7 +28,10 @@ plutoRd.Ds.registerKeywordDriver(keywords, entryCount);
 var wordCloud = React.createElement(plutoRd.WordCloud);
 ReactDOM.render(wordCloud, document.getElementById('word-cloud-mount'));
 
-var blog = React.createElement(plutoRd.Blog);
+var home = React.createElement(plutoRd.Home);
+ReactDOM.render(home, document.getElementById('home-mount'));
+
+var blog = React.createElement(plutoRd.Blog, {maxPerPage: 2});
 ReactDOM.render(blog, document.getElementById('blog-mount'));
 
 function changeImg(png) {
