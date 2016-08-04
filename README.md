@@ -94,26 +94,26 @@ You may notice that a bare minimum functionally working Blog has no styling and 
 *Blog selectors*
 selector | description
 --- | ---
-`#plrd-blog-entries` | **The blog component container**
-`.plrd-entry` | **A single entry** {
+`#plrd-blog-entries` | The blog component container
+`.plrd-entry` | A single entry
 `.plrd-entry-title` | 
 `.plrd-entry-date` | 
 `.plrd-entry-content` | 
-`.plrd-tag-list` | **The tag list container**
-`.plrd-tag` | **A single tag**
-`.plrd-paginator` | **The paginator container**
+`.plrd-tag-list` | The tag list container
+`.plrd-tag` | A single tag
+`.plrd-paginator` | The paginator container
 `.plrd-page-number` | 
-`.plrd-curr-page` | **Current page number in the paginator**
-`.plrd-prev` | **Paginitor 'previous'**
-`.plrd-next` | **Paginiator 'next'**
+`.plrd-curr-page` | Current page number in the paginator
+`.plrd-prev` | Paginator 'previous'
+`.plrd-next` | Paginator 'next'
 
 *Word Cloud*
 selector | description
 --- | ---
-`#plrd-word-cloud` | **The word cloud component container**
-`.plrd-word-cloud-keyword` | **A normal keyword in the cloud**
-`.plrd-popular-keyword` | **Indicates the top 5 most clicked keywords***
-`.plrd-keyword-highlighted` | **Keyword in current context**
+`#plrd-word-cloud` | The word cloud component container
+`.plrd-word-cloud-keyword` | A normal keyword in the cloud
+`.plrd-popular-keyword` | Indicates the top 5 most clicked keywords
+`.plrd-keyword-highlighted` | Keyword in current context
 
 *Other*
 selector | description
