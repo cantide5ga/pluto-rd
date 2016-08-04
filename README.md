@@ -89,7 +89,7 @@ ReactDom.render(<Blog maxPerPage="5" />, document.getElementById('blog-mount'))
 ```
 
 ###Styling
-You may notice that a bare minimum functionally working Blog has no styling and looks terrible ([or may be exactly what you want](http://motherfuckingwebsite.com/)).  Again, Pluto Rd has no opinions on this.  Use the apptly named selectors to get that perfect juxtaposition with the rest of your site:
+You may notice that a bare minimum functionally working Blog has no styling and looks terrible ([or may be exactly what you want](http://motherfuckingwebsite.com/)).  Again, Pluto Rd has no opinions on this.  Use the aptly named selectors to get that perfect juxtaposition with the rest of your site:
 
 *Blog selectors*
 
