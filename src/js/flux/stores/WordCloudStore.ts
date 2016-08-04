@@ -64,7 +64,11 @@ const notifyListener = (handle: string) => {
     Listener.keywordOn(handle);
 }
 
-export class WordCloudStoreStatic extends AbstractStore {
+export interface IWordCloudStore {
+    getStore: () => Array<IFancyWord>;
+}
+
+class WordCloudStoreStatic extends AbstractStore implements IWordCloudStore {
     public getStore(): Array<IFancyWord> {
         return fWords;
     }

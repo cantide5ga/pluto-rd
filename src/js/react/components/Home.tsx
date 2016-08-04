@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { BlogStore } from '../../../flux/stores/BlogStore'
+import { BlogStore } from '../../flux/stores/BlogStore'
 import { Entry } from 'pluto-rd'
-import { BlogActionCreator } from '../../../flux/actions/BlogActionCreator'
+import { BlogActionCreator } from '../../flux/actions/BlogActionCreator'
 
 export class Home extends React.Component<{}, {}> {    
     public render() {          

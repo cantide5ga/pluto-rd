@@ -25,7 +25,9 @@ declare namespace PlutoRd {
     class WordCloud extends Component<{}, Keyword[]> { }
     
     namespace Ds {
-        export function registerEntryDriver(queryFn: (keyword: string) => Entry[]): void
+        export function registerEntryDriver(
+                queryFn: (keyword: string, offset: number, count: number) => Entry[]
+            ): void
         export function registerKeywordDriver(keywords: Keyword[], entryCount: number): void
     }
 }

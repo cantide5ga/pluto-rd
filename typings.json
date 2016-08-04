@@ -2,14 +2,14 @@
   "name": "pluto-rd",
   "globalDependencies": {
     "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#46c43acaef51abc59284c2bb625d0fcfda5be9e3",
-    "node": "registry:dt/node#4.0.0+20160423143914"
+    "node": "registry:dt/node#6.0.0+20160720070758"
   },
   "dependencies": {
-    "flux": "github:cantide5ga/typed-flux#06abf0b632f7d595f4034ce7924d63424df3506f",
+    "flux": "registry:npm/flux#2.1.1+20160601175240",
     "pluto-rd": "file:src/typedef/pluto-rd.d.ts",
-    "react": "github:cantide5ga/typed-react#42692d400db3c333394ec75bce9f6d09b5a0a769"
+    "react": "registry:npm/react#15.0.1+20160601175240"
   },
   "devDependencies": {
-    "rewire": "github:cantide5ga/typed-rewire#69d8069ce84a10928206786ad05e2772ff9576ca"
+    "flux-test-rig": "npm:flux-test-rig"
   }
 }

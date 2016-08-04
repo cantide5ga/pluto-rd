@@ -71,7 +71,13 @@ const nextPage = () => {
 }
 
 //exported to improve testability
-export class BlogStoreStatic extends AbstractStore {
+export interface IBlogStore {
+    getEntries: () => Entry[];
+    getCurrentPage: () => number;
+    getPageCount: () => number;
+}
+
+class BlogStoreStatic extends AbstractStore implements IBlogStore {
     public getEntries(): Entry[] {
         return entries;
     }
