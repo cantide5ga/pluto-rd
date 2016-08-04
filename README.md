@@ -96,13 +96,13 @@ selector | description
 --- | ---
 `#plrd-blog-entries` | The blog component container
 `.plrd-entry` | A single entry
-`.plrd-entry-title` | 
-`.plrd-entry-date` | 
-`.plrd-entry-content` | 
+`.plrd-entry-title` | | 
+`.plrd-entry-date` | | 
+`.plrd-entry-content` | | 
 `.plrd-tag-list` | The tag list container
 `.plrd-tag` | A single tag
 `.plrd-paginator` | The paginator container
-`.plrd-page-number` | 
+`.plrd-page-number` | |
 `.plrd-curr-page` | Current page number in the paginator
 `.plrd-prev` | Paginator 'previous'
 `.plrd-next` | Paginator 'next'
@@ -116,9 +116,9 @@ selector | description
 `.plrd-keyword-highlighted` | Keyword in current context
 
 *Other*
-selector | description
---- | ---
-`.plrd-home` | 
+| selector | description |
+| --- | --- |
+| `.plrd-home` | |
 
 ###Listeners
 When a keyword is clicked, a custom callback can be invoked per keyword.  The `PlutoRd` namespace also exports a `Listener`, allowing for two configurable listeners:
