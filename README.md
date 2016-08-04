@@ -108,6 +108,7 @@ selector | description
 `.plrd-prev` | Paginator 'previous'
 `.plrd-next` | Paginator 'next'
 
+
 *Word Cloud*
 
 selector | description
@@ -117,11 +118,12 @@ selector | description
 `.plrd-popular-keyword` | Indicates the top 5 most clicked keywords
 `.plrd-keyword-highlighted` | Keyword in current context
 
+
 *Other*
 
-| selector | description |
-| --- | --- |
-| `.plrd-home` | |
+selector | description
+---|---
+`.plrd-home`|
 
 ###Listeners
 When a keyword is clicked, a custom callback can be invoked per keyword.  The `PlutoRd` namespace also exports a `Listener`, allowing for two configurable listeners:
