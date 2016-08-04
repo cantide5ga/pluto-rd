@@ -116,7 +116,7 @@ selector | description
 `.plrd-keyword-highlighted` | Keyword in current context
 
 *Other*
-| selector | description |
+| Selector | Description |
 | --- | --- |
 | `.plrd-home` | |
 
