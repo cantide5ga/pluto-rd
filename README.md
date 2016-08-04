@@ -92,6 +92,7 @@ ReactDom.render(<Blog maxPerPage="5" />, document.getElementById('blog-mount'))
 You may notice that a bare minimum functionally working Blog has no styling and looks terrible ([or may be exactly what you want](http://motherfuckingwebsite.com/)).  Again, Pluto Rd has no opinions on this.  Use the apptly named selectors to get that perfect juxtaposition with the rest of your site:
 
 *Blog selectors*
+
 selector | description
 --- | ---
 `#plrd-blog-entries` | The blog component container
@@ -108,6 +109,7 @@ selector | description
 `.plrd-next` | Paginator 'next'
 
 *Word Cloud*
+
 selector | description
 --- | ---
 `#plrd-word-cloud` | The word cloud component container
@@ -116,7 +118,8 @@ selector | description
 `.plrd-keyword-highlighted` | Keyword in current context
 
 *Other*
-| Selector | Description |
+
+| selector | description |
 | --- | --- |
 | `.plrd-home` | |
 
