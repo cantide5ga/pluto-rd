@@ -9,7 +9,7 @@ Uses plain js, a Browserified bundle, and connects to static data.
 Hit the ground running by using Typescript with its JSX support.  Both completely optional.  If you prefer vanilla Javascript, have a look at the reference folder used by the demo.  
 
 ### Connectors
-Pluto Rd is isolated and very losely coupled, having no opinions on the details of it's sources and connects to data via an apptly named **connector**.  Reasonably, however, Pluto Rd does have an expectation for how the data it uses is structured.
+Pluto Rd is isolated and very loosely coupled, having no opinions on the details of it's sources and connects to data via an aptly named **connector**.  Reasonably, however, Pluto Rd does have an expectation for how the data it uses is structured.
 
 Lib consumers will implement a driver to return Entries and Keywords (call a database, pull from file system, static code, whatever!).  The driver would be responsible for mapping to the canonical structures.
 
@@ -24,7 +24,7 @@ Entry {
         keywords: string[]
 }
 ```
-The driver for fetching entries takes a function that returns an array of entires.  It has the following signature:
+The driver for fetching entries takes a function that returns an array of entries.  It has the following signature:
 ```
 /**
 * Registers a callback to be executed on click of keyword.
@@ -41,7 +41,7 @@ registerEntryDriver(queryFn: (keyword: string, offset: number, count: number) =>
 */
 ```
 #### Keywords
-These are the primitive objects used by the Word Cloud to present tag information and interact with fetching relevant entires.  The expected structure:
+These are the primitive objects used by the Word Cloud to present tag information and interact with fetching relevant entries.  The expected structure:
 ```
 Keyword {
         handle: string
