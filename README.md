@@ -1,3 +1,5 @@
+#PlutoRd
+A dead simple blog/wiki library with word cloud navigation.
 ##Demo
 From project root, execute `npm run build`, start a local server, and navigate to /reference/
 
@@ -60,9 +62,9 @@ registerKeywordDriver(keywords: Keyword[], entryCount: number): void
 ```
 ###Mounting the Blog and Word Cloud
 PlutoRd has three reusable decoupled react components:
-* The WordCloud presents all available tags(keywords) and allows for decoration based on a variety of attributes.
-* The Blog presents the articles associated to the current keyword in context.
-* The Home component allows for the reset and clearing of the current keyword in context.
+* The `WordCloud` presents all available tags(keywords) and allows for decoration based on a variety of attributes.
+* The `Blog` presents the articles associated to the current keyword in context.
+* The `Home` component allows for the reset and clearing of the current keyword in context.
 
 Using JSX makes this very easy.
 
@@ -90,33 +92,33 @@ ReactDom.render(<Blog maxPerPage="5" />, document.getElementById('blog-mount'))
 You may notice that a bare minimum functionally working Blog has no styling and looks terrible ([or may be exactly what you want](http://motherfuckingwebsite.com/)).  Again, Pluto Rd has no opinions on this.  Use the apptly named selectors to get that perfect juxtaposition with the rest of your site:
 
 *Blog selectors*
-selector|description
----|---
-`#plrd-blog-entries`|**The blog component container**
-`.plrd-entry`|**A single entry** {
-`.plrd-entry-title`|
-`.plrd-entry-date`|
-`.plrd-entry-content`|
-`.plrd-tag-list`|**The tag list container**
-`.plrd-tag`|**A single tag**
-`.plrd-paginator`|**The paginator container**
-`.plrd-page-number`|
-`.plrd-curr-page`|**Current page number in the paginator**
-`.plrd-prev`|**Paginitor 'previous'**
-`.plrd-next`|**Paginiator 'next'**
+selector | description
+--- | ---
+`#plrd-blog-entries` | **The blog component container**
+`.plrd-entry` | **A single entry** {
+`.plrd-entry-title` | 
+`.plrd-entry-date` | 
+`.plrd-entry-content` | 
+`.plrd-tag-list` | **The tag list container**
+`.plrd-tag` | **A single tag**
+`.plrd-paginator` | **The paginator container**
+`.plrd-page-number` | 
+`.plrd-curr-page` | **Current page number in the paginator**
+`.plrd-prev` | **Paginitor 'previous'**
+`.plrd-next` | **Paginiator 'next'**
 
 *Word Cloud*
-selector|description
----|---
-`#plrd-word-cloud`|**The word cloud component container**
-`.plrd-word-cloud-keyword`|**A normal keyword in the cloud**
-`.plrd-popular-keyword`|**Indicates the top 5 most clicked keywords***
-`.plrd-keyword-highlighted`|**Keyword in current context**
+selector | description
+--- | ---
+`#plrd-word-cloud` | **The word cloud component container**
+`.plrd-word-cloud-keyword` | **A normal keyword in the cloud**
+`.plrd-popular-keyword` | **Indicates the top 5 most clicked keywords***
+`.plrd-keyword-highlighted` | **Keyword in current context**
 
 *Other*
-selector|description
----|---
-`.plrd-home`|
+selector | description
+--- | ---
+`.plrd-home` | 
 
 ###Listeners
 When a keyword is clicked, a custom callback can be invoked per keyword.  The `PlutoRd` namespace also exports a `Listener`, allowing for two configurable listeners:
@@ -135,8 +137,8 @@ onKeyword(keyword: string, fn: () => void): void
 onKeywordElse(fn: () => void): void
 ```
 
-###Design Considerations
-##Landing and Context Reset
+##Design Considerations
+###Landing and Context Reset
 Be sure to make considerations in your Entry Driver implementation for the initial loading of the Blog component and when the Home component (if used) is invoked.  A practical practice for both is to query for all entries, limiting the processing with the provided paging arguments `offset` and `count`.
 
 
