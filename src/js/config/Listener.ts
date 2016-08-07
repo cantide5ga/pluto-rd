@@ -6,6 +6,11 @@ class ListenerStatic {
         this.listeners[keyword] = fn;
     }
     
+    public removeKeyword(keyword: string): void {
+        if(this.listeners[keyword])
+            delete this.listeners[keyword];
+    }
+    
     public onKeywordElse(fn: () => void): void {
         fn(); //assumes default
         this.keywordElseFn = fn;
@@ -21,6 +26,7 @@ class ListenerStatic {
     
     private keywordElseOn() {
         const fn = this.keywordElseFn;
+        /* istanbul ignore else */
         if(fn)
             fn();
     }

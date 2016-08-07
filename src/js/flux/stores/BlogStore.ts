@@ -25,6 +25,7 @@ const loadEntries = ():void => {
     if(qryEntries) {
         const result = qryEntries(currHandle, offset, maxPerPage);
 
+        /* istanbul ignore else */
         if(result) {
             entries = result.pagedEntries || [];
             totalCount = result.totalCount || 0;    

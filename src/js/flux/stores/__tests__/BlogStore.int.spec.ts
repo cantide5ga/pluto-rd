@@ -3,6 +3,7 @@ import { Action } from '../../actions/Action';
 import { ActionTypes } from '../../actions/ActionTypes';
 import { Entry, EntryResult } from 'pluto-rd';
 import { rig, Rig } from 'flux-test-rig';
+import { Dispatcher } from '../../dispatcher/Dispatcher';
 
 let store: IBlogStore;
 let cb: (action: Action) => void;
@@ -77,15 +78,14 @@ describe('BlogStore', function() {
     });
     
     it('sets the entry driver function', () => {
-        initEntryDriver();
+        initEntryDriver(3);
         
         expect(rigged.get('qryEntries')).not.toBeUndefined();
         expect(rigged.get('qryEntries')).toBe(driver);
-        //expect fn signature/params
     });
     
     it('executes the entry driver function', () => {
-        initEntryDriver();
+        initEntryDriver(3);
         
         let action: Action = {
             actionType: ActionTypes.KEYWORD_CLICK,
@@ -105,7 +105,7 @@ describe('BlogStore', function() {
     });
     
     it('returns an empty array when the driver returns something falsey (e.g. nothing)', () => {
-        initEntryDriver();
+        initEntryDriver(3);
         
         let action = {
             actionType: ActionTypes.KEYWORD_CLICK,
@@ -126,18 +126,8 @@ describe('BlogStore', function() {
         expect(Array.isArray(store.getEntries())).toBeTruthy();
     });
     
-    it('returns only 2 entries when maxPerPage set to 2', () => {
-        const driverAction: Action = {
-            actionType: ActionTypes.ENTRY_DRIVER_CONNECT,
-            payload: driver 
-        }         
-        cb(driverAction);
-
-        const mountAction: Action = {
-            actionType: ActionTypes.BLOG_MOUNTED,
-            payload: 2 
-        }
-        cb(mountAction);
+    it('fetches only 2 entries in a result of 3 when maxPerPage set to 2', () => {
+        initEntryDriver(2);
         
         let action = {
             actionType: ActionTypes.KEYWORD_CLICK,
@@ -145,12 +135,99 @@ describe('BlogStore', function() {
         }
         
         cb(action);
+        expect(store.getPageCount()).toEqual(2);
+        expect(store.getEntries().length).toEqual(2);
         expect(store.getEntries()).toEqual( [entry1, entry2] );
     });
     
-    //TODO paging
+    it('fetches the last entry in a result of 3 when maxPerPage set to 2 on PAGE_CLICK of 2', () => {
+        initEntryDriver(2);
+        
+        let clickAction = {
+            actionType: ActionTypes.KEYWORD_CLICK,
+            payload: 'tree' 
+        }
+        
+        let pageClickAction = {
+            actionType: ActionTypes.PAGE_CLICK,
+            payload: 2                       
+        }
+
+        cb(clickAction);
+        cb(pageClickAction);
+        expect(store.getCurrentPage()).toEqual(2);
+        expect(store.getEntries().length).toEqual(1);
+        expect(store.getEntries()).toEqual( [entry3] );
+    });
     
-    function initEntryDriver(): void {
+    it('fetches the last entry in a result of 3 when maxPerPage set to 2 on NEXT_PAGE ', () => {
+        initEntryDriver(2);
+        
+        let clickAction = {
+            actionType: ActionTypes.KEYWORD_CLICK,
+            payload: 'tree' 
+        }
+        
+        let pageNextAction = {
+            actionType: ActionTypes.NEXT_PAGE            
+        }
+        
+        cb(clickAction);
+        cb(pageNextAction);
+        expect(store.getCurrentPage()).toEqual(2);
+        expect(store.getEntries().length).toEqual(1);
+        expect(store.getEntries()).toEqual( [entry3] );
+    });
+
+    it('fetches the first entries in a result of 3 when maxPerPage set to 2 on PREV_PAGE', () => {
+        initEntryDriver(2);
+        
+        let clickAction = {
+            actionType: ActionTypes.KEYWORD_CLICK,
+            payload: 'tree' 
+        }
+        
+        let pageNextAction = {
+            actionType: ActionTypes.NEXT_PAGE            
+        }
+        
+        let pagePrevAction = {
+            actionType: ActionTypes.PREV_PAGE            
+        }
+
+        cb(clickAction);
+        expect(store.getPageCount()).toEqual(2);
+        cb(pageNextAction);
+        expect(store.getCurrentPage()).toEqual(2);
+        cb(pagePrevAction);
+        expect(store.getCurrentPage()).toEqual(1);
+        expect(store.getEntries().length).toEqual(2);
+        expect(store.getEntries()).toEqual( [entry1, entry2] );
+    });
+    
+    it('nullifies the current active keyword', () => {
+        initEntryDriver(3);
+        
+        let clickAction = {
+            actionType: ActionTypes.KEYWORD_CLICK,
+            payload: 'tree' 
+        }
+        
+        cb(clickAction);
+        expect(store.getEntries().length).toEqual(3);
+        expect(rigged.get('currHandle')).toEqual('tree');
+        
+                
+        let resetAction = {
+            actionType: ActionTypes.ENTRIES_RESET 
+        }
+        
+        cb(resetAction);
+        expect(store.getEntries().length).toEqual(0);
+        expect(rigged.get('currHandle')).toBeNull();
+    });
+    
+    function initEntryDriver(maxPerPage: number): void {
         const driverAction: Action = {
             actionType: ActionTypes.ENTRY_DRIVER_CONNECT,
             payload: driver 
@@ -159,7 +236,7 @@ describe('BlogStore', function() {
 
         const mountAction: Action = {
             actionType: ActionTypes.BLOG_MOUNTED,
-            payload: 3 
+            payload: maxPerPage 
         }
         cb(mountAction); 
     }

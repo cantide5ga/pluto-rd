@@ -17,26 +17,30 @@ const multiplier = maxFontSize - minFontSize;
 let fWords = new Array<IFancyWord>();
 
 const initKeywords = (payload: { keywords: Keyword[], entryCount: number }) => { 
-    const now = moment().unix();
+    const now = moment(new Date()).unix();
     
     let i = 0;
     
     fWords = payload.keywords
     //order by hits
     .sort((keyword1, keyword2) => {
-        if(keyword1.hits < keyword2.hits) return -1;
-        else if(keyword1.hits > keyword2.hits) return 1;
+        if(keyword1.hits < keyword2.hits) return 1;
+        /* istanbul ignore else */
+        else if(keyword1.hits > keyword2.hits) return -1;
+        /* istanbul ignore next */
         return 0;
     })
-    .map(keyword => {       
+    .map(keyword => {
+        //const unixTime = moment(keyword.lastTagged).unix();
+               
         let fword: IFancyWord = {
             handle: keyword.handle,
             isRecent: moment(keyword.lastTagged)
-                        .add(tilOld, 'days').isBefore(now),
+                        .add(tilOld, 'days').isAfter(new Date(now * 1000)),
             trendiness: keyword.count / payload.entryCount 
                         * multiplier 
                         + minFontSize,
-            isPopular: i < 5 //mark top 5 as popular
+            isPopular: i < 4 //mark top 5 as popular
         };
         
         i++;
@@ -47,7 +51,9 @@ const initKeywords = (payload: { keywords: Keyword[], entryCount: number }) => {
         const handle1 = fword1.handle.toLowerCase();
         const handle2 = fword2.handle.toLowerCase();
         if(handle1 < handle2) return -1;
+        /* istanbul ignore else */
         else if(handle1 > handle2) return 1;
+        /* istanbul ignore next */
         return 0;
     });
 }
@@ -88,6 +94,10 @@ const cb = (action: Action): void => {
         highlight(action.payload);
         notifyListener(action.payload);
         WordCloudStore.emitChange();
+        break;
+        
+        case ActionTypes.ENTRIES_RESET:
+        notifyListener(null);
         break;
     }
 }

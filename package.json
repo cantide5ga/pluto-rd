@@ -14,7 +14,8 @@
     "prebuild": "npm run clean && mkdir -p dist",
     "build": "npm run build:tsc && npm run bundle",
     "prepack": "npm run build && cp -r src/typedef build/src && cp package.json build && cp typings.json build",
-    "test": "rm -rf build && npm run build:tsc && jasmine"
+    "test": "rm -rf build && npm run build:tsc && istanbul cover jasmine",
+    "posttest": "istanbul check-coverage --statements 80 --functions 80 --branches 80 --lines 80"
   },
   "dependencies": {
     "flux": "^2.1.1",
@@ -24,7 +25,7 @@
   },
   "devDependencies": {
     "browserify": "^13.0.0",
-    "flux-test-rig": "^0.19.0",
+    "flux-test-rig": "^1.1.0",
     "istanbul": "^0.4.3",
     "jasmine": "^2.4.1",
     "typescript": "^1.8.10",
