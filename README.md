@@ -1,6 +1,19 @@
 #PlutoRd
 [![Build Status](https://api.travis-ci.org/cantide5ga/pluto-rd.svg?branch=master)](https://travis-ci.org/cantide5ga/pluto-rd)
-A dead simple blog/wiki library with word cloud navigation.
+
+  1. [Demo](#demo)
+  1. [Usage](#usage)
+    1. [Connectors](#connectors)
+        1. [Entries](#entries)
+        1. [Keywords](#keywords)
+    1. [Mounting the Blog and Word Cloud](#mounting-the-blog-and-word-cloud)
+    1. [Styling](#styling)
+    1. [Listeners](#listeners)
+    1. [License](#license)
+  1. [Design Considerations](#design-considerations)
+    1. [Landing and Context Reset](#landing-and-context-reset)
+  1. [Meta](#meta)  
+  
 ##Demo
 From project root, execute `npm run build`, start a local server, and navigate to /reference/
 
@@ -147,4 +160,8 @@ onKeywordElse(fn: () => void): void
 ###Landing and Context Reset
 Be sure to make considerations in your Entry Driver implementation for the initial loading of the Blog component and when the Home component (if used) is invoked.  A practical practice for both is to query for all entries, limiting the processing with the provided paging arguments `offset` and `count`.
 
-
+##Meta
+Fail-fast tests using npm scripts are broken up in the following order.
+1. Unit: relies a lot on [Jasmine](http://jasmine.github.io/) spies and [flux-test-rig](https://www.npmjs.com/package/flux-test-rig) to verify and invoke [Flux](https://facebook.github.io/flux/) Store operations
+2. Integration: relies less on [Jasmine](http://jasmine.github.io/) spies and more on [flux-test-rig](https://www.npmjs.com/package/flux-test-rig) to test the application's use of the [Flux](https://facebook.github.io/flux/) unidirectional data flow
+3. Functional: verifies the high-level acceptance criteria by simulating components using [Enzyme](http://airbnb.io/enzyme/). 
