@@ -1,4 +1,5 @@
 #PlutoRd
+[![Build Status](https://api.travis-ci.org/cantide5ga/pluto-rd.svg?branch=master)](https://travis-ci.org/cantide5ga/pluto-rd)
 A dead simple blog/wiki library with word cloud navigation.
 ##Demo
 From project root, execute `npm run build`, start a local server, and navigate to /reference/
