@@ -1,7 +1,13 @@
 {
   "author": "cantide5ga",
   "name": "pluto-rd",
-  "description": "<description>",
+  "description": "Simple blogging library with word cloud navigation.",
+  "keywords": [
+    "wiki",
+    "blog",
+    "word-cloud",
+    "tag"
+  ],
   "version": "0.29.0",
   "typings": "./src/typedef/pluto-rd.d.ts",
   "scripts": {
