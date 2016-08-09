@@ -10,6 +10,11 @@ class DataSourceConnectorStatic {
         BlogActionCreator.initGetEntries(queryFn);
     }
     
+    //typically just used for convenience in tests
+    public unregisterEntryDriver = ():void => {
+        BlogActionCreator.freeGetEntries();
+    }
+    
     public registerKeywordDriver = (keywords: Keyword[], entryCount: number): void => {
         const data = {
             keywords: keywords, 

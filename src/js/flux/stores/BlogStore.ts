@@ -42,6 +42,14 @@ const initQryEntries = (payload: (keyword: string) => EntryResult): void => {
     qryEntries = payload;
 }
 
+const freeEntries = (): void => {
+    qryEntries = null;
+    entries = [];
+    totalCount = 0;
+    computePages();
+    loadEntries();
+}
+
 const initBlog = (max: number) => {
     maxPerPage = max;
     loadEntries();
@@ -135,6 +143,12 @@ const cb = (action: Action): void => {
         computePages();
         BlogStore.emitChange();
         break;
+        
+        case ActionTypes.ENTRY_DRIVER_DISCONNECT:
+        freeEntries();
+        BlogStore.emitChange();
+        break;
+        
     }
 };
 

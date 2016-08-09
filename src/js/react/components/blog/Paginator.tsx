@@ -8,13 +8,10 @@ export class Paginator extends React.Component<{ currPage: number, pageCount: nu
     public constructor() {
         super();
         this.prev = 
-                <a href="#" onClick={this.onPrevClick}>
-                    <span className="plrd-prev"></span>
-                </a>;
+                <a href="#" className="plrd-prev" onClick={this.onPrevClick}></a>;
+                    
         this.next = 
-                <a href="#" onClick={this.onNextClick}>
-                    <span className="plrd-next"></span>
-                </a>
+                <a href="#" className="plrd-next" onClick={this.onNextClick}></a>;
     }
     
     public render() {        

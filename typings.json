@@ -10,6 +10,7 @@
     "react": "registry:npm/react#15.0.1+20160601175240"
   },
   "devDependencies": {
+    "enzyme": "registry:npm/enzyme#2.2.0+20160322031343",
     "flux-test-rig": "npm:flux-test-rig"
   }
 }

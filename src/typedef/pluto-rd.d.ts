@@ -26,7 +26,7 @@ declare namespace PlutoRd {
     
     namespace Ds {
         export function registerEntryDriver(
-                queryFn: (keyword: string, offset: number, count: number) => Entry[]
+                queryFn: (keyword: string, offset: number, count: number) => EntryResult
             ): void
         export function registerKeywordDriver(keywords: Keyword[], entryCount: number): void
     }

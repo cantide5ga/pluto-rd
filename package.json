@@ -14,20 +14,34 @@
     "prebuild": "npm run clean && mkdir -p dist",
     "build": "npm run build:tsc && npm run bundle",
     "prepack": "npm run build && cp -r src/typedef build/src && cp package.json build && cp typings.json build",
-    "test": "rm -rf build && npm run build:tsc && istanbul cover jasmine",
-    "posttest": "istanbul check-coverage --statements 80 --functions 80 --branches 80 --lines 80"
+    "pretest": "rm -rf build && npm run build:tsc",
+    "test": "istanbul cover jasmine",
+    "test:all": "npm run pretest && npm run unit && npm run int && npm run func",
+    "test:unit": "npm run pretest && npm run unit",
+    "unit": "istanbul cover jasmine -- --specs **/*unit.[sS]pec.js",
+    "test:int": "npm run pretest && npm run int",
+    "int": "istanbul cover jasmine -- --specs **/*int.[sS]pec.js",
+    "test:func": "npm run pretest && npm run func",
+    "func": "istanbul cover jasmine -- --specs **/*func.[sS]pec.js",
+    "postunit": "istanbul check-coverage --statements 60 --functions 60 --branches 60 --lines 60",
+    "postint": "istanbul check-coverage --statements 70 --functions 70 --branches 70 --lines 70",
+    "postfunc": "istanbul check-coverage --statements 70 --functions 70 --branches 70 --lines 70"
   },
   "dependencies": {
     "flux": "^2.1.1",
     "moment": "^2.13.0",
-    "react": "^15.0.1",
+    "react": "^15.3.0",
     "rewire": "^2.5.1"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
+    "enzyme": "^2.4.1",
     "flux-test-rig": "^1.1.0",
     "istanbul": "^0.4.3",
     "jasmine": "^2.4.1",
+    "jasmine-enzyme": "^1.1.0",
+    "react-addons-test-utils": "^15.3.0",
+    "react-dom": "^15.3.0",
     "typescript": "^1.8.10",
     "typings": "^1.0.4"
   },

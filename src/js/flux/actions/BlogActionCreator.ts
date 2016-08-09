@@ -13,6 +13,12 @@ class ActionCreator extends AbstractActionCreator {
         });
     }
     
+    public freeGetEntries() {
+        this.dispatch({
+            actionType: ActionTypes.ENTRY_DRIVER_DISCONNECT
+        });
+    }
+    
     public clickTag(handle:string): void {
         this.dispatch({
             actionType: ActionTypes.KEYWORD_CLICK,
