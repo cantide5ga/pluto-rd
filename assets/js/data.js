@@ -82,7 +82,7 @@ var keywords = [
     }    
 ]
 
-var entryCount = 4;
+var entryCount = 6;
 
 var fluorite = {
     title: "Fluorite",
@@ -137,5 +137,31 @@ var chrysocolla = {
         element.OXYGEN,
         element.ALUMINUM,
         element.COPPER
+    ]
+}  
+
+var agate = {
+    title: "Agate",
+    date: new Date(),
+    content: 
+        "Agates may be found in various kinds of rock, they are classically associated with volcanic rocks and can be common in certain metamorphic rocks. (https://en.wikipedia.org/wiki/Agate; http://webmineral.com/data/Quartz.shtml)",
+    keywords: [
+        element.SILICON,
+        element.OXYGEN,
+    ]
+}  
+
+var epidote = {
+    title: "Epidote",
+    date: new Date(),
+    content: 
+        "Epidote is commonly prismatic in habit, the direction of elongation being perpendicular to the single plane of symmetry. The faces are often deeply striated and crystals are often twinned. (https://en.wikipedia.org/wiki/Epidote; http://www.webmineral.com/data/Epidote.shtml)",
+    keywords: [
+        element.CALCIUM,
+        element.IRON,
+        element.SILICON,
+        element.HYDROGEN,
+        element.OXYGEN,
+        element.ALUMINUM
     ]
 }  
