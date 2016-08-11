@@ -1,0 +1,180 @@
+@font-face {
+    font-family: FiraSans-Regular;
+    src: url('../fonts/FiraSans-Regular.ttf');
+}
+
+body {
+    font-family: FiraSans-Regular;
+}
+
+.plrd-entry {
+    margin-bottom: 50px;
+}
+
+.plrd-entry-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.plrd-entry-date {
+    color: grey;
+    font-size: 14px;
+}
+
+.plrd-tag {
+    cursor: pointer;
+    margin: 3px;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+#plrd-word-cloud {
+    width: 33%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #88D4D8;
+    line-height: 90%;
+}
+
+.plrd-word-cloud-keyword {
+    cursor: pointer;
+    margin: 4px;
+    display: inline-block;
+}
+
+.plrd-trendy-keyword {
+    font-style: italic;
+}
+
+.plrd-keyword-highlighted {
+    font-weight: bold;
+}
+
+.plrd-home {
+    color: white;
+    background-color: #C95F59;
+    border: none;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+}
+
+#title {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#ribbon {
+    background-color: rgba(0,0,0,.8);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 60px;
+    opacity: .5;
+    width: 100%;
+}
+
+#jumbotron {  
+    /*https://commons.wikimedia.org/wiki/File:Pentagonite_1_(Inde).jpg*/
+    background-image: url('../images/Pentagonite_1_(Inde).jpg');
+    
+    background-position: left bottom;
+    padding: 135px 0px 75px 10px;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+#image-container {
+    width: 300px;
+    margin: 20px;
+    float: right;
+}
+
+#img {
+    width: 100%;
+    height: auto;
+}
+
+#attribution {
+    font-size: 75%;
+}
+
+.plrd-paginator a:link {
+    border: 1px solid #C95F59;
+    color: #C95F59;
+    text-decoration: none;
+    padding: 5px;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.plrd-paginator a:visited {
+    color: #C95F59;
+}
+
+.plrd-paginator a:hover {
+    font-weight: bolder;
+}
+
+.plrd-prev::after {
+    content: "<";    
+}
+
+.plrd-next::after {
+    content: ">";
+}
+
+.plrd-curr-page a:link {
+    border: 1px solid #C95F59;
+    background-color: #C95F59;
+    color: white;
+}
+
+.plrd-curr-page a:visited {
+    border: 1px solid #C95F59;
+    background-color: #C95F59;
+    color: white;
+}
+
+#plug a:link, .plrd-tag-list a:link {
+    color: #C95F59;
+    text-decoration: none;
+}
+#plug a:visited, .plrd-tag-list a:visited {
+    color: #C95F59;
+}
+#plug a:hover, .plrd-tag-list a:hover {
+    background-color: #0095FF;
+    color: white;
+}
+#plug a:active, .plrd-tag-list a:active {
+    background-color: #0095FF;
+    color: white;
+}
+
+.plrd-word-cloud-keyword a:link {
+    color: black;
+    text-decoration: none;
+}
+.plrd-word-cloud-keyword a:visited {
+    color: black;
+}
+.plrd-word-cloud-keyword a:hover {
+    background-color: #0095FF;
+    color: white;
+}
+.plrd-word-cloud-keyword a:active {
+    background-color: #0095FF;
+    color: white;
+}
+
+.plrd-home::after {
+    content: "All Entries...";
+}
+
+.plrd-home:hover {
+    background-color: #0095FF;
+}
