@@ -17,7 +17,7 @@ var element = {
 var keywords = [
     {
         handle: element.CALCIUM,
-        count: 2,
+        count: 3,
         recent: false
     },
     {
@@ -27,12 +27,12 @@ var keywords = [
     },
     {
         handle: element.SILICON,
-        count: 3,
+        count: 5,
         recent: false
     },
     {
         handle: element.OXYGEN,
-        count: 3,
+        count: 5,
         recent: false
     },
     {
@@ -57,12 +57,12 @@ var keywords = [
     },
     {
         handle: element.IRON,
-        count: 1,
+        count: 2,
         recent: false
     },
     {
         handle: element.HYDROGEN,
-        count: 3,
+        count: 4,
         recent: true
     },
     {
@@ -72,7 +72,7 @@ var keywords = [
     },
     {
         handle: element.ALUMINUM,
-        count: 1,
+        count: 2,
         recent: false
     },
     {
