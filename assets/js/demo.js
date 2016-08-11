@@ -16,7 +16,7 @@ function entryDriver(keyword, offset, count) {
         case element.CHROMIUM: entries.push(chromdravite); break;
         case element.ALUMINUM: entries.push(chrysocolla, epidote); break;
         case element.COPPER: entries.push(chrysocolla); break;
-        default: entries.push(fluorite, pentagonite, chromdravite, chrysocolla);
+        default: entries.push(fluorite, pentagonite, chromdravite, chrysocolla, agate, epidote);
     }
     
     return { pagedEntries: entries.slice(offset, offset + count), totalCount: entries.length };
