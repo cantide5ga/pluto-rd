@@ -6,7 +6,7 @@
     1. [Connectors](#connectors)
         1. [Entries](#entries)
         1. [Keywords](#keywords)
-    1. [Mounting the Blog and Word Cloud](#mounting-the-blog-and-word-cloud)
+    1. [JSX](#jsx)
     1. [Styling](#styling)
     1. [Listeners](#listeners)
   1. [Design Considerations](#design-considerations)
@@ -14,11 +14,24 @@
   1. [Meta](#meta)  
   
 ##Demo
-From project root, execute `npm run build`, start a local server, and navigate to /reference/
+https://cantide5ga.github.io/pluto-rd/demo.html
 
 Uses plain js, a Browserified bundle, and connects to static data.
 
 ## Usage
+
+A convenience API renders each component and wires up the drivers as necessary.  See [Connectors](#connectors) for more info.  
+```
+plutoRd.blog(entryDriver, 2)
+    .mountTo(document.getElementById('blog-mount'));
+
+plutoRd.wordCloud(keywords, entryCount)
+    .mountTo(document.getElementById('word-cloud-mount'));
+    
+plutoRd.home()
+    .mountTo(document.getElementById('home-mount'));
+```
+
 Hit the ground running by using Typescript with its JSX support.  Both completely optional.  If you prefer vanilla Javascript, have a look at the reference folder used by the demo.  
 
 ### Connectors
@@ -73,8 +86,8 @@ The signature for the driver to initialize the Word Cloud:
 */
 registerKeywordDriver(keywords: Keyword[], entryCount: number): void
 ```
-###Mounting the Blog and Word Cloud
-PlutoRd has three reusable decoupled react components:
+###JSX
+PlutoRd has three reusable decoupled React components:
 * The `WordCloud` presents all available tags(keywords) and allows for decoration based on a variety of attributes.
 * The `Blog` presents the articles associated to the current keyword in context.
 * The `Home` component allows for the reset and clearing of the current keyword in context.
