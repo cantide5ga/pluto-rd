@@ -14,7 +14,11 @@ body {
 
 #jumbotron {
     text-align: center;
+    
+    /*https://stocksnap.io/photo/0V5X4BLBVW
+    Photographer: https://stocksnap.io/author/21232*/
     background-image: url('../images/banner.jpg');
+    
     background-position: center bottom;
     padding: 7px;
     color: white;
