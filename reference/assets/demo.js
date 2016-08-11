@@ -22,17 +22,9 @@ function entryDriver(keyword, offset, count) {
     return { pagedEntries: entries.slice(offset, offset + count), totalCount: entries.length };
 }
 		
-plutoRd.Ds.registerEntryDriver(entryDriver);
-plutoRd.Ds.registerKeywordDriver(keywords, entryCount);
-
-var wordCloud = React.createElement(plutoRd.WordCloud);
-ReactDOM.render(wordCloud, document.getElementById('word-cloud-mount'));
-
-var home = React.createElement(plutoRd.Home);
-ReactDOM.render(home, document.getElementById('home-mount'));
-
-var blog = React.createElement(plutoRd.Blog, {maxPerPage: 2});
-ReactDOM.render(blog, document.getElementById('blog-mount'));
+plutoRd.blog(entryDriver, 2).mountTo(document.getElementById('blog-mount'));
+plutoRd.wordCloud(keywords, entryCount).mountTo(document.getElementById('word-cloud-mount'))
+plutoRd.home().mountTo(document.getElementById('home-mount'));
 
 function changeImg(png) {
     document.getElementById("img").src="assets/img/" + png + ".png";

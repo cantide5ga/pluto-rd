@@ -16,7 +16,7 @@
     "compile": "tsc",
     "build:tsc": "npm run compile",
     "prebundle": "mkdir build/lib",
-    "bundle": "browserify build/src/js/main.js --standalone pluto-rd > build/lib/bundle.js",
+    "bundle": "NODE_ENV=production && browserify build/src/js/main.js --standalone pluto-rd > build/lib/bundle.js",
     "prebuild": "npm run clean && mkdir -p dist",
     "build": "npm run build:tsc && npm run bundle",
     "postbuild": "uglifyjs build/lib/bundle.js -o dist/pluto-rd-$npm_package_version.js -m",
