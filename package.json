@@ -37,6 +37,7 @@
     "publish:minor": "npm version minor && npm run prepack && npm publish build",
     "publish:patch": "npm version patch && npm run prepack && npm publish build",
     "publish:prerelease": "npm version prerelease && npm run prepack && npm publish build --tag beta",
+    "update:dist": "git add dist$ && git commit -m \"release $npm_package_version\" && git push origin master",
     "tag:git": "git tag v$npm_package_version",
     "install:typings": "typings install"
   },
@@ -63,10 +64,10 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cantide5ga/npm-project-template.git"
+    "url": "git+https://github.com/cantide5ga/pluto-rd.git"
   },
   "bugs": {
-    "url": "https://github.com/cantide5ga/npm-project-template/issues"
+    "url": "https://github.com/cantide5ga/pluto-rd/issues"
   },
-  "homepage": "https://github.com/cantide5ga/npm-project-template#readme"
+  "homepage": "https://github.com/cantide5ga/pluto-rd#readme"
 }
