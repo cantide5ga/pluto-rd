@@ -59,7 +59,6 @@
     "typings": "^1.0.4",
     "uglify-js": "^2.7.0"
   },
-  "private": true,
   "main": "src/js/main.js",
   "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
