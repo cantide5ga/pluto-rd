@@ -8,7 +8,7 @@
     "word-cloud",
     "tag"
   ],
-  "version": "0.29.1-beta.6",
+  "version": "0.29.1-beta.7",
   "typings": "./src/typedef/pluto-rd.d.ts",
   "scripts": {
     "clean": "rm -rf build && rm -rf dist",
