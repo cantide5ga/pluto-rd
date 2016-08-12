@@ -8,7 +8,7 @@
     "word-cloud",
     "tag"
   ],
-  "version": "0.29.1-beta.5",
+  "version": "0.29.1-beta.4",
   "typings": "./src/typedef/pluto-rd.d.ts",
   "scripts": {
     "clean": "rm -rf build && rm -rf dist",
@@ -33,10 +33,10 @@
     "postunit": "istanbul check-coverage --statements 60 --functions 60 --branches 60 --lines 60",
     "postint": "istanbul check-coverage --statements 70 --functions 70 --branches 70 --lines 70",
     "postfunc": "istanbul check-coverage --statements 70 --functions 70 --branches 70 --lines 70",
-    "publish:major": "npm version major && npm run prepack && npm publish build && npm run tag:git",
-    "publish:minor": "npm version minor && npm run prepack && npm publish build && npm run tag:git",
-    "publish:patch": "npm version patch && npm run prepack && npm publish build && npm run tag:git",
-    "publish:prerelease": "npm version prerelease && npm run prepack && npm publish build --tag beta && npm run tag:git",
+    "publish:major": "npm version major && npm run prepack && npm publish build",
+    "publish:minor": "npm version minor && npm run prepack && npm publish build",
+    "publish:patch": "npm version patch && npm run prepack && npm publish build",
+    "publish:prerelease": "npm version prerelease && npm run prepack && npm publish build --tag beta",
     "tag:git": "git tag v$npm_package_version",
     "install:typings": "typings install"
   },
@@ -59,7 +59,7 @@
     "typings": "^1.0.4",
     "uglify-js": "^2.7.0"
   },
-  "main": "src/js/main.js",
+git  "main": "src/js/main.js",
   "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
     "type": "git",
