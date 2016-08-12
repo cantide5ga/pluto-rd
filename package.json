@@ -37,7 +37,8 @@
     "publish:minor": "npm version minor && npm run prepack && npm publish build && npm run tag:git",
     "publish:patch": "npm version patch && npm run prepack && npm publish build && npm run tag:git",
     "publish:prerelease": "npm version prerelease && npm run prepack && npm publish build --tag beta && npm run tag:git",
-    "tag:git": "git tag v$npm_package_version"
+    "tag:git": "git tag v$npm_package_version",
+    "install:typings": "typings install"
   },
   "dependencies": {
     "flux": "^2.1.1",
