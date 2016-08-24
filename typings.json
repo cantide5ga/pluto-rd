@@ -1,5 +1,6 @@
 {
   "name": "pluto-rd",
+  "main": "src/typedef/pluto-rd.d.ts",
   "globalDependencies": {
     "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#46c43acaef51abc59284c2bb625d0fcfda5be9e3",
     "node": "registry:dt/node#6.0.0+20160720070758"
