@@ -8,7 +8,7 @@
     "word-cloud",
     "tag"
   ],
-  "version": "0.29.1-beta.8",
+  "version": "0.29.1-beta.9",
   "scripts": {
     "clean": "rm -rf build && rm -rf dist",
     "init": "rm -rf .git && sudo npm install && npm init && git init",
